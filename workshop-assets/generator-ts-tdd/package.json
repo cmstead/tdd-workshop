@@ -1,0 +1,14 @@
+{
+  "name": "generator-ts-tdd",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "test"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^1.1.1"
+  }
+}

@@ -26,7 +26,8 @@
         "ts-mocha": "^6.0.0"
     },
     "dependencies": {
-        "typescript": "^3.7.5"
+        "typescript": "^3.7.5",
+        "yeoman-generator": "^4.5.0"
     },
     "nanocommit": {
         "testCommand": "node ./node_modules/ts-mocha/bin/ts-mocha ./tests/*.test.ts",

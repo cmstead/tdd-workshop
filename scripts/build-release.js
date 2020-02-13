@@ -15,7 +15,7 @@ function packageSnippets() {
     );
 
     execSync(
-        'vsce package',
+        'vsce package -o tdd-workshop-snippets.vsix',
         { 
             cwd: snippetDir,
             stdio: 'inherit'
