@@ -13,10 +13,13 @@
         "body": [
             "it('${1:behaves this way when user does that}', function(${2:done}){",
             "\t// arrange",
+            "\t// (initial conditions and state)",
             "\t$0",
             "\t// act",
+            "\t// (execute command)",
             "",
             "\t// assert",
+            "\t// (verify outcome)",
             "",
             "});"
         ],
@@ -25,7 +28,7 @@
     "Mocha Before Each": {
         "prefix": "mocha-before-each-setup",
         "body": [
-            "beforeEach(${1:done}){",
+            "beforeEach(function(${1:done}) {",
             "\t$0",
             "});"
         ],
@@ -34,7 +37,7 @@
     "Mocha After Each": {
         "prefix": "mocha-after-each-teardown",
         "body": [
-            "afterEach(${1:done}){",
+            "afterEach(function(${1:done}) {",
             "\t$0",
             "});"
         ],
