@@ -1,0 +1,57 @@
+{
+    "Mocha Describe": {
+        "prefix": "mocha-describe",
+        "body": [
+            "describe('${1:behavior name}', function() {",
+            "\t$0",
+            "});"
+        ],
+        "description": "Test suite behavior description block"
+    },
+    "Mocha It": {
+        "prefix": "mocha-it",
+        "body": [
+            "it('${1:behaves this way when user does that}', function(${2:done}){",
+            "\t// arrange",
+            "\t$0",
+            "\t// act",
+            "",
+            "\t// assert",
+            "",
+            "});"
+        ],
+        "description": "Test case behavior definition"
+    },
+    "Mocha Before Each": {
+        "prefix": "mocha-before-each-setup",
+        "body": [
+            "beforeEach(${1:done}){",
+            "\t$0",
+            "});"
+        ],
+        "description": "Test case setup"
+    },
+    "Mocha After Each": {
+        "prefix": "mocha-after-each-teardown",
+        "body": [
+            "afterEach(${1:done}){",
+            "\t$0",
+            "});"
+        ],
+        "description": "Test case teardown"
+    },
+    "Require Chai Assert": {
+        "prefix": "chai-assert-require",
+        "body": [
+            "const { assert } = require('chai');$0"
+        ],
+        "description": "Require Chai assertion interface"
+    },
+    "Chai Assert Outcome Options": {
+        "prefix": "chai-assert-outcome",
+        "body": [
+            "assert.${1|equal,isTrue,isFalse,throws,doesNotThrow|}($0);"
+        ],
+        "description": "Assert outcome given user event and software command"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "tdd-workshop-snippets",
+    "displayName": "tdd-workshop-snippets",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "cmstead",
+    "engines": {
+        "vscode": "^1.42.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "typescript",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "javascript",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}
