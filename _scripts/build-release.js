@@ -10,7 +10,7 @@ if(!versionType) {
 function packageSnippets() {
     const snippetDir = path.join(
         process.cwd(),
-        'workshop-assets',
+        '_workshop-assets',
         'tdd-workshop-snippets'
     );
 
