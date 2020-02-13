@@ -4,7 +4,8 @@
     "description": "Resources for my TDD workshop",
     "main": "index.js",
     "scripts": {
-        "test": "nanocommit"
+        "test": "nanocommit",
+        "build": "node ./scripts/build-release.js minor"
     },
     "repository": {
         "type": "git",
