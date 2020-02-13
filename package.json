@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "nanocommit",
-        "build": "node ./scripts/build-release.js minor"
+        "build": "node ./scripts/build-release.js minor",
+        "postinstall": "node ./scripts/set-up-project.js"
     },
     "repository": {
         "type": "git",
