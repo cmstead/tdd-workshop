@@ -31,7 +31,7 @@
         "yeoman-generator": "^4.5.0"
     },
     "nanocommit": {
-        "testCommand": "node ./node_modules/ts-mocha/bin/ts-mocha ./tests/*.test.ts",
+        "testCommand": "node ./node_modules/ts-mocha/bin/ts-mocha ./tests/**/*.test.ts",
         "blindCommit": true,
         "annotations": "nanocommit",
         "watchFiles": [],
