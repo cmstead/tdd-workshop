@@ -15,13 +15,13 @@ function DataInterface({
 }
 
 DataInterface.prototype = {
-    ref: function (dataRef = null) {
+    ref: function (dataRef = []) {
         let refKeys = [];
         let newInterface;
 
         if(typeof dataRef === 'string') {
             refKeys = dataRef.split(/\/+/);
-        } else if(dataRef !== null) {
+        } else {
             refKeys = dataRef;
         }
 
