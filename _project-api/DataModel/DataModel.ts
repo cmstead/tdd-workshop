@@ -7,15 +7,27 @@ declare interface SetupDefinition {
 }
 
 export default class DataModel {
-    readonly name: string;
+    protected name: string;
+    protected dataStore;
 
     private dataDefinition: DataDefinition;
-    private dataStore;
     private ref;
 
-    constructor(dataDefinition: DataDefinition) {
+    init() {
+        if(!(this.dataDefinition)) {
+            throw new Error(`Cannot initialize ${this.name} model without a data definition.`);
+        }
+
         this.ref = this.dataStore.ref(this.name);
+    }
+
+    setDataDefinition(dataDefinition) {
         this.dataDefinition = dataDefinition;
+        return this;
+    }
+
+    setDataConnector(dataConnector) {
+        this.dataStore = dataConnector;
     }
 
     static Array(definition: DataDefinition) {
@@ -26,7 +38,7 @@ export default class DataModel {
     }
 
 
-    static Object(definition: SetupDefinition) {
+    static Object(definition: object) {
         return new DataDefinition({
             type: 'object',
             definition: this.buildObjectDefinition(definition)

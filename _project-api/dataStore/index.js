@@ -7,7 +7,8 @@ function DataStore(jsonFileService) {
 DataStore.prototype = {
     init: function (filePath) {
         this.jsonFileService.setPath(filePath);
-        return DataInterface.build(this.jsonFileService);
+        
+        return DataInterface.build({ jsonFileService: this.jsonFileService });
     }
 };
 

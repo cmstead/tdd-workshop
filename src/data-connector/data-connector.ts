@@ -1,11 +1,12 @@
 const path = require('path');
-const DataStore = require('../../01_project-api/dataStore');
+const DataStore = require('../../_project-api/dataStore');
 
 const dataFilePath = path.join(
     __dirname,
     '..',
     '..',
-    'system-data'
+    'system-data',
+    'datastore.json'
 );
 
 export default DataStore.build().init(dataFilePath);
