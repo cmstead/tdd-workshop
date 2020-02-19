@@ -1,4 +1,4 @@
-import DataModelSet from "./data-models/types/DataModelSet";
+import DataModelSet from "../data-models/types/DataModelSet";
 
 export default class SampleCommand {
     private modelSet: DataModelSet;
@@ -9,7 +9,7 @@ export default class SampleCommand {
 
     exec(userInput = []) {
         this.modelSet.Sample.create({
-            userInput: userInput[0]
+            userInput: userInput.join(' ')
         });
     }
 

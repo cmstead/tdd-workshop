@@ -1,4 +1,4 @@
-import DataModelSet from "./data-models/types/DataModelSet";
+import DataModelSet from "../data-models/types/DataModelSet";
 
 export default class <%= commandName %> {
     private modelSet: DataModelSet;

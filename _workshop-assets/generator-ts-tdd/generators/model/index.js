@@ -35,7 +35,6 @@ module.exports = class extends Generator {
         const testPath = path.join(
             process.cwd(),
             'app',
-            'src',
             'data-models',
             fileName);
 
