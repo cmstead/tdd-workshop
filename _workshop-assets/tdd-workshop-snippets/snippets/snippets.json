@@ -56,5 +56,19 @@
             "assert.${1|equal,isTrue,isFalse,throws,doesNotThrow|}($0);"
         ],
         "description": "Assert outcome given user event and software command"
+    },
+    "Require Sinon": {
+        "prefix": "sinon-require",
+        "body": [
+            "const sinon = require('sinon');"
+        ],
+        "description": "Require sinon library in test file"
+    },
+    "Sinon Create Spy or Stub": {
+        "prefix": "sinon-spy-stub",
+        "body": [
+            "sinon.${1|spy,stub|}($2);$0"
+        ],
+        "description": "Create a sinon spy or stub"
     }
 }
