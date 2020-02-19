@@ -8,7 +8,7 @@ export default class SampleCommand {
     }
 
     exec(args = []) {
-        this.modelSet.Sample.create({ test: args[0] });
+        this.modelSet.Sample.create({ userInput: args[0] });
     }
 
     static build(models: DataModelSet) {

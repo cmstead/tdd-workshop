@@ -3,7 +3,7 @@ import { IDataModel } from '../_project-api/DataModel/types/DataModel';
 const { assert } = require('chai');
 const sinon = require('sinon');
 
-class SampleFake implements IDataModel{
+class SampleModelFake implements IDataModel{
     createStub: any;
 
     constructor() {
@@ -27,7 +27,7 @@ describe('Sample Application Command', function () {
 
     beforeEach(function() {
         modelFakes = {
-            Sample: new SampleFake()
+            Sample: new SampleModelFake()
         };
 
         sampleCommand = new SampleCommand(modelFakes);
@@ -46,7 +46,7 @@ describe('Sample Application Command', function () {
         // (verify outcome)
         const commandResult = modelFakes.Sample.createStub.args[0][0];
 
-        assert.equal(JSON.stringify(commandResult), `{"test":"${cliEnteredValues[0]}"}`);
+        assert.equal(JSON.stringify(commandResult), `{"userInput":"${cliEnteredValues[0]}"}`);
     });
 
 });
