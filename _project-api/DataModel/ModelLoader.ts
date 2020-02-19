@@ -1,4 +1,5 @@
-import DataModel from './DataModel'
+import { DataModelSet } from './types/DataModel';
+
 const fs = require('fs');
 const path = require('path');
 
@@ -23,7 +24,7 @@ export default class DataModels {
                 )));
     }
 
-    static buildModels(basePath, dataConnector): Promise<DataModel[]> {
+    static buildModels(basePath, dataConnector): Promise<DataModelSet> {
         const modelFileSet = this.getModelFileSet(basePath)
 
         return Promise
@@ -36,7 +37,7 @@ export default class DataModels {
                         const newModel = new currentModel();
                         newModel.setDataConnector(dataConnector);
                         newModel.init();
-                        
+
                         models[currentModel.name] = newModel;
                         return models;
                     }, {});

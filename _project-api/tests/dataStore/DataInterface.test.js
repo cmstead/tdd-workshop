@@ -171,4 +171,50 @@ describe('Data Interface', function () {
             assert.equal(JSON.stringify(writeResult), '{"test":[{"test":"value"}]}');
         });
     });
+
+    describe('Delete value', function() {
+        it('deletes am object from the store when provided a key', function(){
+            const dataInterface = buildDataInterface({ test: { foo: 'bar' }});
+
+            dataInterface.delete({ id: 'test' });
+
+            const writeResult = jsonFileServiceFake.writeFileSpy.args[0][0];
+
+            assert.equal(JSON.stringify(writeResult), '{}');
+        });
+
+        it('deletes an object from a ref in the store when provided a key', function(){
+            const dataInterface = buildDataInterface({ test: { foo: ['bar'] }});
+
+            dataInterface.ref('test').delete({ id: 'foo' });
+
+            const writeResult = jsonFileServiceFake.writeFileSpy.args[0][0];
+
+            assert.equal(JSON.stringify(writeResult), '{"test":{}}');
+        });
+
+        it('deletes an object from a ref in the store when provided a predicate', function(){
+            const dataInterface = buildDataInterface({ test: { foo: ['bar'] }});
+
+            dataInterface.ref('test').delete({
+                predicate: (key, _) => key === 'foo'
+            });
+
+            const writeResult = jsonFileServiceFake.writeFileSpy.args[0][0];
+
+            assert.equal(JSON.stringify(writeResult), '{"test":{}}');
+        });
+
+        it('deletes an object from an array ref in the store when provided a predicate', function(){
+            const dataInterface = buildDataInterface({ test: { foo: ['bar', 'baz'] }});
+
+            dataInterface.ref('test/foo').delete({
+                predicate: (_, value) => value === 'baz'
+            });
+
+            const writeResult = jsonFileServiceFake.writeFileSpy.args[0][0];
+
+            assert.equal(JSON.stringify(writeResult), '{"test":{"foo":["bar"]}}');
+        });
+    });
 });

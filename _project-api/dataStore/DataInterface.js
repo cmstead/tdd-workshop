@@ -70,34 +70,78 @@ DataInterface.prototype = {
         });
     },
 
-    set: function (data) {
+    _assignValue: function(value) {
         if (this.currentRef !== null) {
-            this.data[this.currentRef] = data;
+            this.data[this.currentRef] = value;
         } else {
-            this.data = data;
+            this.data = value;
         }
+    },
 
+    _assignValueByKey: function(key, value) {
+        if (this.currentRef !== null) {
+            this.data[this.currentRef][key] = value;
+        } else {
+            this.data[key] = value;
+        }
+    },
+
+    set: function (data) {
+        this._assignValue(data);
         this.write();
     },
 
     update: function (data) {
         if (typeof this.data === 'object' && this.data !== null) {
             Object.keys(data).forEach((key) => {
-                this.data[this.currentRef][key] = data[key];
+                this._assignValueByKey(key, data[key]);
             });
         } else {
-            this.set(data);
+            this._assignValue(data);
+        }
+        
+        this.write();
+    },
+
+    _deleteById: function (id) {
+        this._assignValueByKey(id, undefined);
+    },
+
+    _removeDeletedItems: function () {
+        if(Array.isArray(this.val())){
+            const resultArray = this.val()
+                .filter(value => typeof value !== 'undefined');
+
+            this._assignValue(resultArray);
+        }
+    },
+
+    _deleteByPredicate: function (predicate) {
+        const value = this.val();
+
+        if (typeof value === 'object' && value !== null) {
+            Object
+                .entries(this.val())
+                .forEach(([key, value]) => {
+                    if (predicate(key, value)) {
+                        this._deleteById(key);
+                    }
+                });            
+        }
+    },
+
+    delete: function ({ id = null, predicate = () => false }) {
+        if (id !== null) {
+            this._deleteById(id);
+        } else {
+            this._deleteByPredicate(predicate);
         }
 
         this.write();
     },
 
     _createArray: function () {
-        if (this.currentRef === null && !Array.isArray(this.data)) {
-            this.data = [];
-        } else if (!Array.isArray(this.data[this.currentRef])) {
-            this.data[this.currentRef] = [];
-        }
+        this._assignValue([]);
     },
 
     _pushValue: function (data) {
@@ -116,6 +160,8 @@ DataInterface.prototype = {
     },
 
     write: function () {
+        this._removeDeletedItems();
+        
         if (this.jsonFileService) {
             this.jsonFileService.writeFile(this.data);
         } else if (this.parent) {

@@ -1,13 +1,15 @@
-import DataModel from '../_project-api/DataModel/DataModel';
+import { DataModelSet } from "../_project-api/DataModel/types/DataModel";
 
 export default class App {
-    dataModels: DataModel[];
+    private models: DataModelSet;
 
-    constructor(dataModels: DataModel[]) {
-        this.dataModels = dataModels;
+    constructor(models: DataModelSet) {
+        this.models = models;
     }
 
-    exec(args) {
-
+    exec(args = []) {
+        if (args[0] === 'test') {
+            this.models.Sample.create({ test: 'foo' });
+        }
     }
 }

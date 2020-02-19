@@ -8,7 +8,9 @@ export default class Sample extends DataModel {
 
         this.setDataDefinition(
             DataModel.Object({
-
+                test: {
+                    type: 'string'
+                }
             })
         );
     }

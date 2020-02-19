@@ -1,12 +1,12 @@
 import ModelLoader from '../../_project-api/DataModel/ModelLoader'
-import DataModel from '../../_project-api/DataModel/DataModel';
 
 import dataConnector from '../data-connector/data-connector';
+import { DataModelSet } from '../../_project-api/DataModel/types/DataModel';
 
 export default class DataModels {
-    private static modelCache: DataModel[] = null;
+    private static modelCache: DataModelSet = null;
 
-    static models(): Promise<DataModel[]> {
+    static models(): Promise<DataModelSet> {
         if(this.modelCache !== null) {
             return Promise.resolve(this.modelCache);
         } else {

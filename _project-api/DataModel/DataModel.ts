@@ -1,10 +1,11 @@
 import DataDefinition from "./DataDefinition";
 import ValueDefinition from "./ValueDefinition";
 
-declare interface SetupDefinition {
-    type: string,
-    validate?: (any) => boolean
-}
+import {
+    DeleteOptions,
+    ObjectSetupDefinition,
+    SetupDefinition
+} from "./types/DataModel";
 
 export default class DataModel {
     protected name: string;
@@ -14,7 +15,7 @@ export default class DataModel {
     private ref;
 
     init() {
-        if(!(this.dataDefinition)) {
+        if (!(this.dataDefinition)) {
             throw new Error(`Cannot initialize ${this.name} model without a data definition.`);
         }
 
@@ -38,7 +39,7 @@ export default class DataModel {
     }
 
 
-    static Object(definition: object) {
+    static Object(definition: ObjectSetupDefinition) {
         return new DataDefinition({
             type: 'object',
             definition: this.buildObjectDefinition(definition)
@@ -63,7 +64,7 @@ export default class DataModel {
 
     private static buildPropertyDefinition(definition) {
         if (typeof definition.type !== 'undefined') {
-            return this.Value(definition.type);
+            return this.Value(definition);
         } else {
             return definition;
         }
@@ -94,7 +95,7 @@ export default class DataModel {
         return this.filter(predicate)[0];
     }
 
-    write(value) {
+    create(value) {
         this.dataDefinition.validate(value);
 
         if (this.dataDefinition.isDefinitionOf('array')) {
@@ -114,5 +115,9 @@ export default class DataModel {
         } else {
             this.ref.set(value);
         }
+    }
+
+    delete(options: DeleteOptions = {}) {
+        this.ref.delete(options);
     }
 }
