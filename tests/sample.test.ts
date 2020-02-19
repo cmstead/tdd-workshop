@@ -30,7 +30,7 @@ describe('Sample Application Command', function () {
             Sample: new SampleModelFake()
         };
 
-        sampleCommand = new SampleCommand(modelFakes);
+        sampleCommand = SampleCommand.build(modelFakes);
     });
 
     it('creates a test record when triggered by a user action', function(){
