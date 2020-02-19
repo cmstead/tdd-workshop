@@ -22,16 +22,31 @@ class SampleFake implements IDataModel{
 
 describe('Sample Application Command', function () {
 
-    it('creates a test record when triggered by a user action', function () {
-        const sampleModelFake = new SampleFake()
-        const sampleCommand = new SampleCommand({ Sample: sampleModelFake });
-        const userInputValues = ['User input value'];
+    let modelFakes;
+    let sampleCommand;
 
-        sampleCommand.exec(userInputValues);
+    beforeEach(function() {
+        modelFakes = {
+            Sample: new SampleFake()
+        };
 
-        const commandResult = sampleModelFake.createStub.args[0][0];
+        sampleCommand = new SampleCommand(modelFakes);
+    });
 
-        assert.equal(JSON.stringify(commandResult), `{"test":"${userInputValues[0]}"}`);
+    it('creates a test record when triggered by a user action', function(){
+        // arrange
+        // (initial conditions and state)
+        const cliEnteredValues = ['User input value'];
+
+        // act
+        // (execute command)
+        sampleCommand.exec(cliEnteredValues);
+
+        // assert
+        // (verify outcome)
+        const commandResult = modelFakes.Sample.createStub.args[0][0];
+
+        assert.equal(JSON.stringify(commandResult), `{"test":"${cliEnteredValues[0]}"}`);
     });
 
 });
