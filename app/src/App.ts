@@ -1,4 +1,4 @@
-import { DataModelSet } from "../../_project-api/DataModel/types/DataModel";
+import DataModelSet from "./data-models/types/DataModelSet";
 import DataModels from './data-models/_DataModels';
 
 export default class App {

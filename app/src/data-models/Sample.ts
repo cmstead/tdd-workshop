@@ -1,4 +1,4 @@
-import DataModel from "../../../_project-api/DataModel/DataModel";
+import DataModel from "./types/DataModel";
 
 export default class Sample extends DataModel {
     constructor() {
