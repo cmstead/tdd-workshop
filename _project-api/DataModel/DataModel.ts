@@ -4,10 +4,11 @@ import ValueDefinition from "./ValueDefinition";
 import {
     DeleteOptions,
     ObjectSetupDefinition,
-    SetupDefinition
+    SetupDefinition,
+    IDataModel
 } from "./types/DataModel";
 
-export default class DataModel {
+export default class DataModel implements IDataModel {
     protected name: string;
     protected dataStore;
 

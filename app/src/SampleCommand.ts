@@ -8,8 +8,7 @@ export default class SampleCommand {
     }
 
     exec(args = []) {
-        this.modelSet.Sample.create({ test: 'foo' });
-        console.log('It ran!', this.modelSet.Sample.val());
+        this.modelSet.Sample.create({ test: args[0] });
     }
 
     static build(models: DataModelSet) {

@@ -1,13 +1,22 @@
-import DataModel from "../DataModel";
 import DataDefinition from "../DataDefinition";
 
-declare interface DataModelSet{
-    [name: string]: DataModel
+declare interface IDataModel {
+    filter?: (predicate: (any) => boolean) => any[]
+    find?: (predicate: (any) => boolean) => any
+
+    create: (any) => void
+    update: (any) => void
+    delete: (DeleteOptions) => void
+    val: () => any
 }
 
-type typeName = 'object' 
-    | 'string' 
-    | 'number' 
+declare interface DataModelSet {
+    [name: string]: IDataModel
+}
+
+type typeName = 'object'
+    | 'string'
+    | 'number'
     | 'boolean'
     | 'bigint';
 
@@ -24,3 +33,4 @@ declare interface DeleteOptions {
     id?: string,
     predicate?: (any) => boolean
 }
+

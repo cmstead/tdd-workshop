@@ -4,9 +4,10 @@ import DataModels from './src/data-models/_DataModels';
 // Import commands here
 import SampleCommand from './src/SampleCommand';
 
-const cliBuilder = CliBuilder.build();
 
 function configureCli(models) {
+    const cliBuilder = CliBuilder.build();
+
     const sampleCommand = SampleCommand.build(models);
 
     return cliBuilder
