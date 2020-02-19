@@ -1,12 +1,11 @@
 import DataDefinition from "../DataDefinition";
 
 declare interface IDataModel {
-    filter?: (predicate: (any) => boolean) => any[]
-    find?: (predicate: (any) => boolean) => any
-
     create: (any) => void
-    update: (any) => void
     delete: (DeleteOptions) => void
+    filter: (predicate: (any) => boolean) => any[]
+    find: (predicate: (any) => boolean) => any
+    update: (any) => void
     val: () => any
 }
 

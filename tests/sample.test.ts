@@ -7,14 +7,16 @@ class SampleFake implements IDataModel{
     createStub: any;
 
     constructor() {
-        this.createStub = sinon.stub();    
+        this.createStub = sinon.stub();
+
+        this.create = (...args) => this.createStub(...args);    
     }
 
-    create(...args){
-        this.createStub(...args);
-    }
-    update(){}
+    create(){}
     delete(){}
+    filter(){ return []; }
+    find(){}
+    update(){}
     val(){}
 }
 
