@@ -1,5 +1,6 @@
-import SampleCommand from '../app/src/SampleCommand';
 import { IDataModel } from '../_project-api/DataModel/types/DataModel';
+import SampleCommand from '../app/src/SampleCommand';
+
 const { assert } = require('chai');
 const sinon = require('sinon');
 
