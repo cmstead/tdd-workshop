@@ -1,7 +1,7 @@
-import ModelLoader from '../../_project-api/DataModel/ModelLoader'
+import ModelLoader from '../../../_project-api/DataModel/ModelLoader'
 
 import dataConnector from '../data-connector/data-connector';
-import { DataModelSet } from '../../_project-api/DataModel/types/DataModel';
+import { DataModelSet } from '../../../_project-api/DataModel/types/DataModel';
 
 export default class DataModels {
     private static modelCache: DataModelSet = null;
