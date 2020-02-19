@@ -19,7 +19,7 @@ export default class DataModel {
             throw new Error(`Cannot initialize ${this.name} model without a data definition.`);
         }
 
-        this.ref = this.dataStore.ref(this.name);
+        this.ref = this.dataStore.ref(this.name.toLowerCase());
     }
 
     setDataDefinition(dataDefinition) {
