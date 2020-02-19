@@ -4,12 +4,21 @@ const fs = require('fs');
 const path = require('path');
 
 export default class DataModels {
+    private static isFile(filePath) {
+        try{
+            return fs.lstatSync(filePath).isFile();
+        } catch (e) {
+            return false;
+        }
+    }
+
     private static getModelFileNames(basePath): [string] {
         return fs.readdirSync(basePath)
             .filter(value =>
                 value !== '.'
                 && value !== '..'
-                && !value.match(/^_DataModels\..+$/));
+                && !value.match(/^_.*$/)
+                && this.isFile(path.join(basePath, value)));
     }
 
     private static getModelFileSet(basePath): Promise<any>[] {

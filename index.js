@@ -2,7 +2,7 @@ const { execSync } = require('child_process');
 
 const args = process.argv.slice(2);
 
-const command = ['ts-node', './index.ts']
+const command = ['ts-node', './app.ts']
     .concat(args)
     .join(' ');
 

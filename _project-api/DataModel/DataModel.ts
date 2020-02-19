@@ -120,4 +120,8 @@ export default class DataModel {
     delete(options: DeleteOptions = {}) {
         this.ref.delete(options);
     }
+
+    val() {
+        return this.ref.val();
+    }
 }
