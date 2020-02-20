@@ -1,6 +1,6 @@
 {
     "name": "tdd-workshop",
-    "version": "1.26.0",
+    "version": "1.27.0",
     "description": "Resources for my TDD workshop",
     "main": "index.js",
     "scripts": {
