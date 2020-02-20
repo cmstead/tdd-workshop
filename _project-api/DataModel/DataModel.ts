@@ -92,8 +92,12 @@ export default class DataModel implements IDataModel {
         }
     }
 
-    delete(options: DeleteOptions = {}) {
-        this.ref.delete(options);
+    deleteById(id) {
+        this.ref.delete({ id: id });
+    }
+
+    delete(predicate: (any) => boolean) {
+        this.ref.delete({ predicate: predicate });
     }
 
     val() {

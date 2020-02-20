@@ -3,7 +3,8 @@ import ValueDefinition from "../ValueDefinition";
 
 declare interface IDataModel {
     create: (any) => void
-    delete: (DeleteOptions) => void
+    deleteById: (id: any) => void
+    delete: (predicate: (any) => boolean) => void
     filter: (predicate: (any) => boolean) => any[]
     find: (predicate: (any) => boolean) => any
     update: (any, predicate?: (any) => boolean) => void

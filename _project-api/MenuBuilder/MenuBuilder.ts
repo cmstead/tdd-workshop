@@ -9,6 +9,10 @@ export default class MenuBuilder{
         this.promptDefinitions = [];
     }
 
+    static build() {
+        return new MenuBuilder();
+    }
+
     addTextInput({
         valueName,
         description,

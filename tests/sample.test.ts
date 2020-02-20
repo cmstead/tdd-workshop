@@ -15,6 +15,7 @@ class SampleModelFake implements IDataModel{
 
     create(){}
     delete(){}
+    deleteById(){}
     filter(){ return []; }
     find(){}
     update(){}
