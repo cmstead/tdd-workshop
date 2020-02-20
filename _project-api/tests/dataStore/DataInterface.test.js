@@ -2,8 +2,8 @@ const { assert } = require('chai');
 const stubcontractor = require('stubcontractor')({});
 const sinon = require('sinon');
 
-const JsonFileService = require('../../dataStore/JsonFileService');
-const DataInterface = require('../../dataStore/DataInterface');
+const JsonFileService = require('../../DataStore/JsonFileService');
+const DataInterface = require('../../DataStore/DataInterface');
 
 describe('Data Interface', function () {
 
