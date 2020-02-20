@@ -1,5 +1,6 @@
 import DataDefinition from "./DataDefinition";
 import ValueDefinition from "./ValueDefinition";
+import DataUtils from './DataUtils';
 
 import {
     DeleteOptions,
@@ -7,6 +8,7 @@ import {
     SetupDefinition,
     IDataModel
 } from "./types/DataModel";
+import DefinitionUtils from "./DefinitionUtils";
 
 export default class DataModel implements IDataModel {
     protected name: string;
@@ -33,67 +35,39 @@ export default class DataModel implements IDataModel {
     }
 
     static Array(definition: DataDefinition) {
-        return new DataDefinition({
-            type: 'array',
-            definition: definition
-        });
+        return DefinitionUtils.buildModelDefinition('array', definition);
     }
 
-
     static Object(definition: ObjectSetupDefinition) {
-        return new DataDefinition({
-            type: 'object',
-            definition: this.buildObjectDefinition(definition)
-        });
+        return DefinitionUtils.buildModelDefinition(
+            'object',
+            DefinitionUtils.buildObjectDefinition(definition));
     }
 
     static Value(definition: SetupDefinition) {
-        return new DataDefinition({
-            type: 'value',
-            definition: new ValueDefinition(definition)
-        });
+        return DefinitionUtils.buildModelDefinition(
+            'value',
+            new ValueDefinition(definition)
+        );
     }
 
-    private static buildObjectDefinition(definition) {
-        return Object
-            .entries(definition)
-            .reduce((result, [key, value]) => {
-                result[key] = this.buildPropertyDefinition(value);
-                return result;
-            }, {});
-    }
-
-    private static buildPropertyDefinition(definition) {
-        if (typeof definition.type !== 'undefined') {
-            return this.Value(definition);
+    private updateArray(value, predicate) {
+        if (typeof predicate === 'function') {
+            DataUtils.mergeAllMatching(this.ref.val(), value, predicate);
+            this.ref.write();
         } else {
-            return definition;
+            this.ref.push(value);
         }
     }
-
-    read() {
-        return this.ref.read();
-    }
-
+    
     filter(predicate: (any) => boolean) {
-        const values = this.read();
-
-        if (Array.isArray(values)) {
-            return values.filter(predicate);
-        } else if (typeof values === 'object' && values !== null) {
-            return Object.entries(values)
-                .map(([key, value]) => ({
-                    key,
-                    value
-                }))
-                .filter(predicate);
-        } else {
-            throw new TypeError(`Value at ${this.name} is not searchable.`);
-        }
+        return DataUtils.refValueToArray(this.val(), this.name)
+            .filter(predicate);
     }
 
     find(predicate: (any) => boolean) {
-        return this.filter(predicate)[0];
+        return DataUtils.refValueToArray(this.val(), this.name)
+            .find(predicate);
     }
 
     create(value) {
@@ -106,11 +80,11 @@ export default class DataModel implements IDataModel {
         }
     }
 
-    update(value) {
+    update(value, predicate = null) {
         this.dataDefinition.validate(value);
 
         if (this.dataDefinition.isDefinitionOf('array')) {
-            this.ref.push(value);
+            this.updateArray(value, predicate);
         } else if (this.dataDefinition.isDefinitionOf('object')) {
             this.ref.update(value);
         } else {

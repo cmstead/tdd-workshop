@@ -1,17 +1,21 @@
 import DataDefinition from "../DataDefinition";
+import ValueDefinition from "../ValueDefinition";
 
 declare interface IDataModel {
     create: (any) => void
     delete: (DeleteOptions) => void
     filter: (predicate: (any) => boolean) => any[]
     find: (predicate: (any) => boolean) => any
-    update: (any) => void
+    update: (any, predicate?: (any) => boolean) => void
     val: () => any
 }
 
 declare interface DataModelSet {
     [name: string]: IDataModel
 }
+
+type modelType = 'array' | 'object' | 'value';
+type modelDefinition = ValueDefinition | DataDefinition | ObjectSetupDefinition;
 
 type typeName = 'object'
     | 'string'
