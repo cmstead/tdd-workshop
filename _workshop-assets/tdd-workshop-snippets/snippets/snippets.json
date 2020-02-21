@@ -1,6 +1,6 @@
 {
-    "Mocha Describe": {
-        "prefix": "mocha-describe",
+    "Mocha 'Describe' Test Suite": {
+        "prefix": "mocha-describe-suite",
         "body": [
             "describe('${1:behavior name}', function() {",
             "\t$0",
@@ -8,8 +8,8 @@
         ],
         "description": "Test suite behavior description block"
     },
-    "Mocha It": {
-        "prefix": "mocha-it",
+    "Mocha 'It' Test Case": {
+        "prefix": "mocha-it-test",
         "body": [
             "it('${1:behaves this way when user does that}', function(${2:done}){",
             "\t// arrange",
@@ -25,7 +25,7 @@
         ],
         "description": "Test case behavior definition"
     },
-    "Mocha Before Each": {
+    "Mocha 'Before Each' Setup": {
         "prefix": "mocha-before-each-setup",
         "body": [
             "beforeEach(function(${1:done}) {",
@@ -34,7 +34,7 @@
         ],
         "description": "Test case setup"
     },
-    "Mocha After Each": {
+    "Mocha 'After Each' Teardown": {
         "prefix": "mocha-after-each-teardown",
         "body": [
             "afterEach(function(${1:done}) {",
@@ -67,7 +67,7 @@
     "Sinon Create Spy or Stub": {
         "prefix": "sinon-spy-stub",
         "body": [
-            "sinon.${1|spy,stub|}($2);$0"
+            "sinon.${1|spy,stub|}(${2:${3:ObjectReference}, ${4:MethodName}});$0"
         ],
         "description": "Create a sinon spy or stub"
     }

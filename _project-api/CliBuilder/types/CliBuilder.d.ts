@@ -1,10 +1,12 @@
+export type parameterType = BooleanConstructor | StringConstructor | NumberConstructor;
+
 export declare interface CliOptions {
     name: string
-    action: (...args: any) => void
+    action: (...args: any[]) => void
     
     alias?: string
-    defaultOption?: any
-    type?: BooleanConstructor | StringConstructor | NumberConstructor
+    defaultOption?: string
+    type?: parameterType
 }
 
 export declare interface CliOptionsSet {

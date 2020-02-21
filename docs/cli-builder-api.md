@@ -18,8 +18,13 @@ const sampleCommand = SampleCommand.build(models);
 return cliBuilder
     .registerCommand({
         name: 'sample',
-        action: args => sampleCommand.exec(args)
-    });
+        action: args => sampleCommand.exec(args),
+
+        // These are all optional
+        alias: 's',
+        type: String,
+        defaultOption: ''
+});
 ```
 
 At the command line:
