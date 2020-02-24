@@ -4,7 +4,7 @@
     "description": "Resources for my TDD workshop",
     "main": "index.js",
     "scripts": {
-        "test": "npm run build-container && npm run run-tests",
+        "test": "nanocommit",
         "run-tests": "node ./node_modules/ts-mocha/bin/ts-mocha ./tests/**/*.test.ts",
         "build-container": "node ./node_modules/dject-cli --build-import-container",
         "build": "node ./_scripts/build-release.js minor",
@@ -36,5 +36,14 @@
         "ts-node": "^8.6.2",
         "typescript": "^3.7.5",
         "yeoman-generator": "^4.5.0"
+    },
+    "nanocommit": {
+        "testCommand": "npm run build-container && npm run run-tests",
+        "blindCommit": true,
+        "annotations": "nanocommit",
+        "watchFiles": [],
+        "defaultCommandArgs": null,
+        "commitMessage": null,
+        "customAnnotations": null
     }
 }
