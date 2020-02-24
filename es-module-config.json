@@ -1,0 +1,9 @@
+{
+    "cwd": "app/src",
+    "djectLocation": "dject",
+    "isNodeApplication": true,
+    "destinationPath": "app${pathSeparator}container.ts",
+    "modulePaths": [
+        "**${pathSeparator}*.{{languageExtension}}"
+    ]
+}
