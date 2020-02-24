@@ -1,13 +1,12 @@
 {
     "name": "tdd-workshop",
-    "version": "1.29.0",
+    "version": "1.30.0",
     "description": "Resources for my TDD workshop",
     "main": "index.js",
     "scripts": {
         "test": "nanocommit",
-        "build": "node ./node_modules/dject-cli/ --build-import-container",
-        "start": "node ./index.js",
         "build": "node ./_scripts/build-release.js minor",
+        "start": "node ./index.js",
         "postinstall": "node ./_scripts/set-up-project.js"
     },
     "repository": {
