@@ -1,15 +1,10 @@
-import IDjectExport from 'dject/class/ts/IDjectExport';
-import Dject from 'dject/class/ts/Dject';
-
 import { DataModelSet } from '../types/DataModels';
 
-class Models extends Dject {
+const Dject = require('dject/class/utilities/Dject');
+
+class Models {
     public static '@singleton' = true
     private models: DataModelSet
-
-    constructor() {
-        super();
-    }
 
     setModels(models: DataModelSet) {
         if (typeof this.models !== 'undefined') {
@@ -28,7 +23,5 @@ class Models extends Dject {
     }
 }
 
-const modelsExport: IDjectExport = Dject.prepareExport(Models);
-
-export default modelsExport;
+export default Dject.prepareExport(Models);
 export type DataModels = Models

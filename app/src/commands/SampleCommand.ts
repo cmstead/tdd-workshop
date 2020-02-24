@@ -1,6 +1,7 @@
-import Dject from "dject/class/ts/Dject";
 import { DataModelSet } from "../../types/DataModels";
 import ICommand from "../../types/ICommand";
+
+const Dject = require('dject/class/utilities/Dject');
 
 class SampleCommand implements ICommand {
     public static '@dependencies' = [

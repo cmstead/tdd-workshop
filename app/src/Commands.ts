@@ -1,7 +1,7 @@
-import Dject from 'dject/class/ts/Dject';
-
 import CliBuilder from '../../_project-api/CliBuilder/CliBuilder';
 import ICommand from '../types/ICommand';
+
+const Dject = require('dject/class/utilities/Dject');
 
 class Commands {
     static '@dependencies' = [
