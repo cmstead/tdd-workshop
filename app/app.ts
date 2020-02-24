@@ -1,20 +1,11 @@
-import CliBuilder from '../_project-api/CliBuilder/CliBuilder';
+import container from './container';
 import DataModels from './data-models/_DataModels';
 
-// Import commands here
-import SampleCommand from './src/SampleCommand';
-
-
 function configureCli(models) {
-    const cliBuilder = CliBuilder.build();
+    const modelsService = container.build('Models');
+    modelsService.setModels(models);
 
-    const sampleCommand = SampleCommand.build(models);
-
-    return cliBuilder
-        .registerCommand({
-            name: 'sample',
-            action: args => sampleCommand.exec(args)
-        });
+    return container.build('Commands').register();
 }
 
 DataModels

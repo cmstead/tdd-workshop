@@ -1,5 +1,5 @@
+import { DataModelSet } from "../types/DataModels";
 import ModelLoader from '../../_project-api/DataModel/ModelLoader'
-import { DataModelSet } from '../../_project-api/DataModel/types/DataModel';
 
 import dataConnector from './data-connector/data-connector';
 
