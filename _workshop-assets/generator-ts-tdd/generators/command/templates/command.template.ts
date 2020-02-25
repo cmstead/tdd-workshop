@@ -1,6 +1,6 @@
-import DataModelSet from "../data-models/types/DataModelSet";
+import DataModelSet from "../../types/DataModelSet";
 
-module.exports = class <%= commandName %> {
+export default class <%= commandName %> ICommand {
     private modelSet: DataModelSet;
 
     constructor(modelSet: DataModelSet) {

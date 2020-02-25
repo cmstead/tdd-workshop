@@ -16,10 +16,10 @@ Every model must have a name and a data definition.  The setup looks like the fo
 
 ```typescript
 // Import the base DataModel class for extension
-import DataModel from "../../_project-api/DataModel/DataModel";
+const DataModel = require("datamodel");
 
 // Be sure your model extends the base DataModel class
-module.exports = class Sample extends DataModel {
+export default class Sample extends DataModel {
     constructor() {
         super();
 
@@ -88,9 +88,9 @@ The data definitions require model data definitions which are constructed within
 Model setup:
 
 ```typescript
-import DataModel from "../../_project-api/DataModel/DataModel";
+const DataModel = require("datamodel");
 
-module.exports = class Sample extends DataModel {
+export default class Sample extends DataModel {
     constructor() {
         super();
 

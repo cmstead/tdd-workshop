@@ -1,4 +1,4 @@
-import DataModel from "../../_project-api/DataModel/DataModel";
+const DataModel = require("datamodel");
 
 module.exports = class <%= modelName %> extends DataModel {
     constructor() {
