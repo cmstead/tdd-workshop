@@ -15,6 +15,7 @@ DataModels
     })
     .catch(function(error) {
         console.log('==========================');
+        console.log('An application error occurred:\n');
         console.log(error)
         console.log('==========================');
     });
