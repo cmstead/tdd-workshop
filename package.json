@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "nanocommit",
+        "test-integration": "node ./ sample test",
         "run-tests": "node ./node_modules/ts-mocha/bin/ts-mocha ./tests/**/*.test.ts",
         "build-container": "node ./node_modules/dject-cli --build-import-container",
         "build": "node ./_scripts/build-release.js minor",
@@ -32,6 +33,7 @@
         "ts-mocha": "^6.0.0"
     },
     "dependencies": {
+        "clibuilder": "file:_project-api/CliBuilder",
         "datastore": "file:_project-api/DataStore",
         "dject": "^1.18.0",
         "ts-node": "^8.6.2",
