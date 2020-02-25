@@ -5,23 +5,24 @@ import container from '../../app/container';
 
 const { assert } = require('chai');
 const sinon = require('sinon');
+const gwt = require('fluent-gwt');
 
-class SampleModelFake implements IDataModel{
+class SampleModelFake implements IDataModel {
     createStub: any;
 
     constructor() {
         this.createStub = sinon.stub();
 
-        this.create = (...args) => this.createStub(...args);    
+        this.create = (...args) => this.createStub(...args);
     }
 
-    create(){}
-    delete(){}
-    deleteById(){}
-    filter(){ return []; }
-    find(){}
-    update(){}
-    val(){}
+    create() { }
+    delete() { }
+    deleteById() { }
+    filter() { return []; }
+    find() { }
+    update() { }
+    val() { }
 }
 
 describe('Sample Application Command', function () {
@@ -29,7 +30,7 @@ describe('Sample Application Command', function () {
     let modelFakes;
     let sampleCommand: ICommand;
 
-    beforeEach(function() {
+    beforeEach(function () {
         const testContainer = container.new();
 
         modelFakes = {
@@ -41,20 +42,29 @@ describe('Sample Application Command', function () {
         sampleCommand = testContainer.build('SampleCommand');
     });
 
-    it('creates a test record when triggered by a user action', function(){
-        // arrange
-        // (initial conditions and state)
-        const cliEnteredValues = ['User input value'];
+    it('creates a test record when triggered by a user action', function () {
+        const expectedContentValue = 'User input value';
 
-        // act
-        // (execute command)
-        sampleCommand.exec(cliEnteredValues);
+        return gwt
+            .arrange(
+                'User enters expected content value at CLI',
+                () => [expectedContentValue]
+            )
+            .act(
+                'Sample command is run with user entered values',
+                (userEnteredValues) => sampleCommand.exec(userEnteredValues)
+            )
+            .assert(
+                'Data store receives updated content',
+                () => {
+                    const commandResult = modelFakes.Sample.createStub.args[0][0];
 
-        // assert
-        // (verify outcome)
-        const commandResult = modelFakes.Sample.createStub.args[0][0];
-
-        assert.equal(JSON.stringify(commandResult), `{"userInput":"${cliEnteredValues[0]}"}`);
+                    assert.equal(
+                        JSON.stringify(commandResult),
+                        `{"userInput":"${expectedContentValue}"}`
+                    );
+                }
+            );
     });
 
 });
