@@ -1,4 +1,5 @@
 const { execSync } = require('child_process');
+const packageSnippets = require('./build-snippets-extension');
 
 console.log('\nInstalling project API dependencies...');
 execSync('npm install', {
@@ -10,6 +11,9 @@ console.log('\nInstalling Yeoman...');
 execSync('npm install yo@latest -g', {
     stdio: "inherit"
 });
+
+console.log('\nPackaging latest snippets version...');
+packageSnippets();
 
 console.log('\nInstalling VS Code snippets extension...');
 execSync('code --install-extension ./tdd-workshop-snippets.vsix', {
