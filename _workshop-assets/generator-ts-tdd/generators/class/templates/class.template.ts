@@ -1,14 +1,7 @@
-import ICommand from "../../types/ICommand";
-
 const Dject = require('dject/class/utilities/Dject');
 
-class <%= commandName %> implements ICommand {
-    
+class <%= className %> {
     constructor(dependencyMap: any) {
-
-    }
-
-    exec(userInput = []) {
 
     }
 

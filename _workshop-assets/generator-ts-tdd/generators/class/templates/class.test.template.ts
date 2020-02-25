@@ -1,17 +1,15 @@
-import ICommand from '../../app/types/ICommand';
-
-import container from '../../app/container';
+import container from '<%= relativeDepth %>../app/container';
 
 const { assert } = require('chai');
 
-describe('<%= commandName %>', function () {
+describe('<%= className %>', function () {
 
-    let <%= camelCaseCommandName %>: ICommand;
+    let <%= camelCaseClassName %>;
 
     beforeEach(function() {
         const testContainer = container.new();
 
-        <%= camelCaseCommandName %> = testContainer.build('<%= commandName %>');
+        <%= camelCaseClassName %> = testContainer.build('<%= className %>');
     });
 
     it('then, when, given', function(){

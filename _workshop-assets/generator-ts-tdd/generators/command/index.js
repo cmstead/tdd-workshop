@@ -40,11 +40,13 @@ module.exports = class extends Generator {
             process.cwd(),
             'app',
             'src',
+            'commands',
             fileName);
         
         const testPath = path.join(
             process.cwd(),
             'tests',
+            'commands',
             fileName.replace('.ts', '.test.ts'));
 
         this.fs.copyTpl(

@@ -1,7 +1,7 @@
-import { IDataModel } from '../app/types/DataModels';
-import ICommand from '../app/types/ICommand';
+import { IDataModel } from '../../app/types/DataModels';
+import ICommand from '../../app/types/ICommand';
 
-import container from '../app/container';
+import container from '../../app/container';
 
 const { assert } = require('chai');
 const sinon = require('sinon');
