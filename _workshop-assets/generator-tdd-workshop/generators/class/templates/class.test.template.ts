@@ -12,6 +12,7 @@ describe('<%= className %>', function () {
         <%= camelCaseClassName %> = testContainer.build('<%= className %>');
     });
 
+    // It behaves this way when the user does that
     it('then, when, given', function(){
         // arrange (Given)
         // (initial conditions and state)

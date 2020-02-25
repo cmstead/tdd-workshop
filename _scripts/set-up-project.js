@@ -19,14 +19,20 @@ execSync('code --install-extension ./tdd-workshop-snippets.vsix', {
 
 console.log('\nLinking File generator...');
 execSync('npm link ./', {
-    cwd: "./_workshop-assets/generator-ts-tdd",
+    cwd: "./_workshop-assets/generator-tdd-workshop",
     stdio: "inherit"
 });
 
-const devBranchExists = !execSync(
-    'git show-ref --verify refs/heads/dev',
-    { encoding: 'utf8' })
-    .startsWith('fatal');
+let devBranchExists = false;
+
+try{
+   devBranchExists = !execSync(
+        'git show-ref --verify refs/heads/dev',
+        { encoding: 'utf8' })
+        .startsWith('fatal');
+} catch(e) {
+    console.log('No dev branch found, state is okay, continuing.')
+}
 
 console.log('\nPreparing git branches...');
 

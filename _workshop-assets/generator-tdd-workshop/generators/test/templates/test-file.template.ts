@@ -12,14 +12,15 @@ describe('<%= behaviorName %>', function () {
         behaviorUnderTestName = testContainer.build('behaviorUnderTestName');
     });
 
-    it('fails intentionally, to ensure it is included in test suite', function(){
-        // arrange
+    // It behaves this way when the user does that
+    it('then, when, given', function(){
+        // arrange (Given)
         // (initial conditions and state)
 
-        // act
+        // act (When)
         // (execute command)
 
-        // assert
+        // assert (Then)
         // (verify outcome)
         assert.isFalse(true);
     });

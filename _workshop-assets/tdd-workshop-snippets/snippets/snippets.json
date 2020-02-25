@@ -11,7 +11,8 @@
     "Mocha 'It' Test Case": {
         "prefix": "mocha-it-test",
         "body": [
-            "it('${1:behaves this way when user does that}', function(${2:done}){",
+            "// It behaves this way when the user does that",
+            "it('${1:then, when, given}', function(${2:done}){",
             "\t// arrange",
             "\t// (initial conditions and state)",
             "\t$0",

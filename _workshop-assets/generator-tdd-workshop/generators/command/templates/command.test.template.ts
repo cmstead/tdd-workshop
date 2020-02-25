@@ -8,13 +8,14 @@ describe('<%= commandName %>', function () {
 
     let <%= camelCaseCommandName %>: ICommand;
 
-    beforeEach(function() {
+    beforeEach(function () {
         const testContainer = container.new();
 
         <%= camelCaseCommandName %> = testContainer.build('<%= commandName %>');
     });
 
-    it('then, when, given', function(){
+    // It behaves this way when the user does that
+    it('then, when, given', function () {
         // arrange (Given)
         // (initial conditions and state)
 
