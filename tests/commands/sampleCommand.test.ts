@@ -36,7 +36,6 @@ describe('Sample Application Command', function () {
             Sample: new SampleModelFake()
         };
 
-        console.log(testContainer.build('Models'));
         testContainer.build('Models').setModels(modelFakes);
 
         sampleCommand = testContainer.build('SampleCommand');

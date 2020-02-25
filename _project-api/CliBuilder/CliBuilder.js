@@ -18,7 +18,7 @@ module.exports = class CliBuilder {
     }
 
     getDefaultAction(command) {
-        const errorMessage = `No command '${command}' is defined.`;
+        const errorMessage = `No command named '${command}' is defined.`;
 
         return function () {
             throw new Error(errorMessage);;
