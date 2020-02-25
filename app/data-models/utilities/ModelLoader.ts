@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = class DataModels {
+export default class ModelLoader {
     static isFile(filePath) {
         try{
             return fs.lstatSync(filePath).isFile();
@@ -39,7 +39,7 @@ module.exports = class DataModels {
             .then(modelInstances => {
                 return modelInstances
                     .filter(currentModel => currentModel !== null)
-                    .map(currentModel => currentModel.default)
+                    .map((currentModel: any) => currentModel.default)
                     .reduce((models, currentModel) => {
                         const newModel = new currentModel();
                         newModel.setDataConnector(dataConnector);

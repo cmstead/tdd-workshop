@@ -32,6 +32,7 @@
         "ts-mocha": "^6.0.0"
     },
     "dependencies": {
+        "datastore": "file:_project-api/DataStore",
         "dject": "^1.18.0",
         "ts-node": "^8.6.2",
         "typescript": "^3.7.5",

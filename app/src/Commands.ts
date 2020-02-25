@@ -1,6 +1,6 @@
-import CliBuilder from '../../_project-api/CliBuilder/CliBuilder';
 import ICommand from '../types/ICommand';
 
+const CliBuilder = require('../../_project-api/CliBuilder/CliBuilder');
 const Dject = require('dject/class/utilities/Dject');
 
 class Commands {

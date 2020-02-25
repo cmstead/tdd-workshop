@@ -12,5 +12,10 @@ DataModels
     .models()
     .then(function (models) {
         configureCli(models).exec();
+    })
+    .catch(function(error) {
+        console.log('==========================');
+        console.log(error)
+        console.log('==========================');
     });
 

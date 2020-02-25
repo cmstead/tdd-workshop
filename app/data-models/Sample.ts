@@ -1,4 +1,4 @@
-const DataModel = require('../../_project-api\DataModel\DataModel.js');
+const DataModel = require('../../_project-api/DataModel/DataModel.js');
 
 export default class Sample extends DataModel {
     constructor() {

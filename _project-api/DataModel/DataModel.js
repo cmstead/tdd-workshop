@@ -9,6 +9,10 @@ module.exports = class DataModel {
     dataDefinition;
     ref;
 
+    constructor() {
+        
+    }
+
     init() {
         if (!(this.dataDefinition)) {
             throw new Error(`Cannot initialize ${this.name} model without a data definition.`);

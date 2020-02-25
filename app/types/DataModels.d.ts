@@ -1,14 +1,10 @@
-import DataModel from "../../_project-api/DataModel/DataModel";
-
-declare type DataModel = DataModel;
-
-declare interface DataModelSet {
+export interface DataModelSet {
     [name: string]: DataModel
 }
 
-declare type predicate = (any) => boolean
+export type predicate = (any) => boolean
 
-declare interface IDataModel {
+export interface IDataModel {
     create: (any) => void
     delete: (any) => void
     deleteById: (any) => void
