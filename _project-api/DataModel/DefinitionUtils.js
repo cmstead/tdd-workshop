@@ -1,8 +1,7 @@
-import { modelType, modelDefinition } from "./types/DataModel";
-import DataDefinition from "./DataDefinition";
-import ValueDefinition from "./ValueDefinition";
+const DataDefinition = require("./DataDefinition");;
+const ValueDefinition = require("./ValueDefinition");;
 
-export default class DefinitionUtils {
+module.exports = class DefinitionUtils {
     static buildObjectDefinition(definition) {
         return Object
             .entries(definition)
@@ -24,8 +23,8 @@ export default class DefinitionUtils {
     }
 
     static buildModelDefinition(
-        type: modelType,
-        definition: modelDefinition
+        type,
+        definition
     ) {
         return new DataDefinition({
             type: type,

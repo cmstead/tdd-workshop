@@ -1,6 +1,6 @@
-export default class DataDefinition {
-    private type: string;
-    private definition: any;
+module.exports = class DataDefinition {
+    type;
+    definition;
 
     constructor({
         type,
@@ -10,11 +10,11 @@ export default class DataDefinition {
         this.definition = definition;
     }
 
-    isDefinitionOf(definitionType: 'array' | 'object' | 'value') {
+    isDefinitionOf(definitionType) {
         return this.type === definitionType;
     }
 
-    private validateProperty(key, value) {
+    validateProperty(key, value) {
         if (typeof this.definition[key] === 'undefined') {
             throw new Error(`Unknown property.`);
         } else {
@@ -22,7 +22,7 @@ export default class DataDefinition {
         }
     }
 
-    private validateObject([key, value]) {
+    validateObject([key, value]) {
         try{
             this.validateProperty(key, value);
         } catch (e) {
@@ -30,7 +30,7 @@ export default class DataDefinition {
         }
     }
 
-    private validateValue(value) {
+    validateValue(value) {
         if (this.type === 'value' || this.type === 'array') {
             this.definition.validate(value);
         } else {

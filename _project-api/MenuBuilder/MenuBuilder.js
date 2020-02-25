@@ -1,9 +1,7 @@
-
-
 const inquirer = require('inquirer');
 
-export default class MenuBuilder{
-    private promptDefinitions: object[];
+module.exports = class MenuBuilder{
+    promptDefinitions;
 
     constructor() {
         this.promptDefinitions = [];

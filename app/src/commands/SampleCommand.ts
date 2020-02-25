@@ -25,4 +25,4 @@ class SampleCommand implements ICommand {
     }
 }
 
-export default Dject.prepareExport(SampleCommand);
+module.exports = Dject.prepareExport(SampleCommand);

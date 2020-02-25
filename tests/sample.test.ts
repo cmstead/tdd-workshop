@@ -1,4 +1,4 @@
-import { IDataModel } from '../_project-api/DataModel/types/DataModel';
+import { IDataModel } from '../app/types/DataModels';
 import ICommand from '../app/types/ICommand';
 
 import container from '../app/container';

@@ -1,6 +1,6 @@
 import DataModel from "../../_project-api/DataModel/DataModel";
 
-export default class <%= modelName %> extends DataModel {
+module.exports = class <%= modelName %> extends DataModel {
     constructor() {
         super();
 

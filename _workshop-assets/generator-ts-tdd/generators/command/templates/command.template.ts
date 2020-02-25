@@ -1,6 +1,6 @@
 import DataModelSet from "../data-models/types/DataModelSet";
 
-export default class <%= commandName %> {
+module.exports = class <%= commandName %> {
     private modelSet: DataModelSet;
 
     constructor(modelSet: DataModelSet) {

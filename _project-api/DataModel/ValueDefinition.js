@@ -1,10 +1,10 @@
-export default class ValueDefinition {
-    private type: string;
-    private validator: (any) => boolean;
+module.exports = class ValueDefinition {
+    type;
+    validator;
 
     constructor({
         type,
-        validate = (value: any) => true
+        validate = () => true
     }) {
         this.type = type;
         this.validator = validate;

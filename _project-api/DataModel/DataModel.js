@@ -1,21 +1,13 @@
-import DataDefinition from "./DataDefinition";
-import ValueDefinition from "./ValueDefinition";
-import DataUtils from './DataUtils';
+const ValueDefinition = require("./ValueDefinition");;
+const DataUtils = require('./DataUtils');;
+const DefinitionUtils = require("./DefinitionUtils");;
 
-import {
-    DeleteOptions,
-    ObjectSetupDefinition,
-    SetupDefinition,
-    IDataModel
-} from "./types/DataModel";
-import DefinitionUtils from "./DefinitionUtils";
+module.exports = class DataModel {
+    name;
+    dataStore;
 
-export default class DataModel implements IDataModel {
-    protected name: string;
-    protected dataStore;
-
-    private dataDefinition: DataDefinition;
-    private ref;
+    dataDefinition;
+    ref;
 
     init() {
         if (!(this.dataDefinition)) {
@@ -34,24 +26,24 @@ export default class DataModel implements IDataModel {
         this.dataStore = dataConnector;
     }
 
-    static Array(definition: DataDefinition) {
+    static Array(definition) {
         return DefinitionUtils.buildModelDefinition('array', definition);
     }
 
-    static Object(definition: ObjectSetupDefinition) {
+    static Object(definition) {
         return DefinitionUtils.buildModelDefinition(
             'object',
             DefinitionUtils.buildObjectDefinition(definition));
     }
 
-    static Value(definition: SetupDefinition) {
+    static Value(definition) {
         return DefinitionUtils.buildModelDefinition(
             'value',
             new ValueDefinition(definition)
         );
     }
 
-    private updateArray(value, predicate) {
+    updateArray(value, predicate) {
         if (typeof predicate === 'function') {
             DataUtils.mergeAllMatching(this.ref.val(), value, predicate);
             this.ref.write();
@@ -60,12 +52,12 @@ export default class DataModel implements IDataModel {
         }
     }
     
-    filter(predicate: (any) => boolean) {
+    filter(predicate) {
         return DataUtils.refValueToArray(this.val(), this.name)
             .filter(predicate);
     }
 
-    find(predicate: (any) => boolean) {
+    find(predicate) {
         return DataUtils.refValueToArray(this.val(), this.name)
             .find(predicate);
     }
@@ -96,7 +88,7 @@ export default class DataModel implements IDataModel {
         this.ref.delete({ id: id });
     }
 
-    delete(predicate: (any) => boolean) {
+    delete(predicate) {
         this.ref.delete({ predicate: predicate });
     }
 

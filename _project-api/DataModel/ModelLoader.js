@@ -1,10 +1,8 @@
-import { DataModelSet } from './types/DataModel';
-
 const fs = require('fs');
 const path = require('path');
 
-export default class DataModels {
-    private static isFile(filePath) {
+module.exports = class DataModels {
+    static isFile(filePath) {
         try{
             return fs.lstatSync(filePath).isFile();
         } catch (e) {
@@ -12,7 +10,7 @@ export default class DataModels {
         }
     }
 
-    private static getModelFileNames(basePath): [string] {
+    static getModelFileNames(basePath) {
         return fs.readdirSync(basePath)
             .filter(value =>
                 value !== '.'
@@ -21,7 +19,7 @@ export default class DataModels {
                 && this.isFile(path.join(basePath, value)));
     }
 
-    private static getModelFileSet(basePath): Promise<any>[] {
+    static getModelFileSet(basePath) {
         const modelFileNames = this
             .getModelFileNames(basePath);
 
@@ -33,7 +31,7 @@ export default class DataModels {
                 )));
     }
 
-    static buildModels(basePath, dataConnector): Promise<DataModelSet> {
+    static buildModels(basePath, dataConnector) {
         const modelFileSet = this.getModelFileSet(basePath)
 
         return Promise

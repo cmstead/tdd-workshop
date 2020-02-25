@@ -1,5 +1,19 @@
 import DataModel from "../../_project-api/DataModel/DataModel";
-import { DataModelSet } from "../../_project-api/DataModel/types/DataModel";
 
 declare type DataModel = DataModel;
-declare type DataModelSet = DataModelSet;
+
+declare interface DataModelSet {
+    [name: string]: DataModel
+}
+
+declare type predicate = (any) => boolean
+
+declare interface IDataModel {
+    create: (any) => void
+    delete: (any) => void
+    deleteById: (any) => void
+    filter: (predicate) => any[]
+    find: (predicate) => any
+    update: (any) => void
+    val: () => any
+}

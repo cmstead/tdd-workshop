@@ -24,4 +24,3 @@ class Models {
 }
 
 export default Dject.prepareExport(Models);
-export type DataModels = Models

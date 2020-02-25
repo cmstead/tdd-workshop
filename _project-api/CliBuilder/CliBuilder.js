@@ -1,14 +1,13 @@
-import { CliOptions, CliOptionsSet } from './types/CliBuilder';
 const commandLineArgs = require('command-line-args');
 
-export default class CliBuilder {
-    cliOptions: CliOptionsSet;
+module.exports = class CliBuilder {
+    cliOptions;
 
     constructor() {
         this.cliOptions = {};
     }
 
-    registerCommand(options: CliOptions) {
+    registerCommand(options) {
         if(typeof options.type === 'undefined') {
             options.type = Boolean;
         }
@@ -26,7 +25,7 @@ export default class CliBuilder {
         }
     }
 
-    private getCommandAction(command) {
+    getCommandAction(command) {
         const commandOptions = this.cliOptions[command];
 
         return typeof commandOptions !== 'undefined'
@@ -34,7 +33,7 @@ export default class CliBuilder {
             : this.getDefaultAction(command);
     }
 
-    private parseCommand() {
+    parseCommand() {
         const cliOptions = Object.values(this.cliOptions);
         const parsedCommand = commandLineArgs(cliOptions, { stopAtFirstUnknown: true });
 

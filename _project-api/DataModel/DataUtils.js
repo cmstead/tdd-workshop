@@ -1,4 +1,4 @@
-export default class DataUtils{
+module.exports = class DataUtils{
 
     static objectToArray(values) {
         return Object.entries(values)
