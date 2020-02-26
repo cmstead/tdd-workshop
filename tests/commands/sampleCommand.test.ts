@@ -5,7 +5,7 @@ import container from '../../app/container';
 
 const { assert } = require('chai');
 const sinon = require('sinon');
-const gwt = require('fluent-gwt');
+const gwt = require('fluent-gwt').configure();
 
 class SampleModelFake implements IDataModel {
     createStub: any;

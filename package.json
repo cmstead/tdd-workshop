@@ -27,7 +27,7 @@
         "@types/mocha": "^7.0.1",
         "chai": "^4.2.0",
         "dject-cli": "^2.1.0",
-        "fluent-gwt": "^1.0.1",
+        "fluent-gwt": "^2.0.3",
         "mocha": "^7.0.1",
         "nanocommit": "^1.14.0",
         "sinon": "^9.0.0",

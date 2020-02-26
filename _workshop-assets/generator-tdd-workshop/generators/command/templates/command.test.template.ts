@@ -3,7 +3,7 @@ import ICommand from '../../app/types/ICommand';
 import container from '../../app/container';
 
 const { assert } = require('chai');
-const gwt = require('fluent-gwt');
+const gwt = require('fluent-gwt').configure();
 
 describe('<%= commandName %>', function () {
 

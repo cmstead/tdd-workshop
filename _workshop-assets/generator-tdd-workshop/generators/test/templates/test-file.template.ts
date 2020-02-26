@@ -1,7 +1,7 @@
 import container from '../app/container';
 
 const { assert } = require('chai');
-const gwt = require('fluent-gwt');
+const gwt = require('fluent-gwt').configure();
 
 describe('<%= behaviorName %>', function () {
 
