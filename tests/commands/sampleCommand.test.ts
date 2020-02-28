@@ -5,7 +5,7 @@ import container from '../../app/container';
 
 const { assert } = require('chai');
 const sinon = require('sinon');
-const gwt = require('fluent-gwt').configure();
+const givenWhenThen = require('fluent-gwt').configure();
 
 class SampleModelFake implements IDataModel {
     createStub: any;
@@ -45,7 +45,7 @@ describe('Sample Application Command', function () {
     it('creates a test record when triggered by a user action', function () {
         const expectedContentValue = 'User input value';
 
-        return gwt
+        return givenWhenThen
             .arrange(
                 'User enters expected content value at CLI',
                 () => [expectedContentValue]
