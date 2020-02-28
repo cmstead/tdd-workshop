@@ -11,32 +11,32 @@ The exposed API provides access to the input (keyboard input), editor (multiline
 - `instance.addTextInput(object): MenuBuilder` - add a text input behavior chronologically next in the user input flow. Method input object is as follows:
 
 ```typescript
-{
+instance.addTextInput({
     valueName: string,
     description: string,
     defaultValue?: string,
     validator?: (any) => boolean
-}
+});
 ```
 
 - `instance.addEditorInput(object): MenuBuilder` - add a multiline input behavior chronologically next in the user input flow. Method input object is as follows:
 
 ```typescript
-{
+instance.addEditorInput({
     valueName: string,
     description: string,
     validator?: (any) => boolean
-}
+});
 ```
 
 - `instance.addListInput(object): MenuBuilder` - add a list/menu behavior chronologically next in the user input flow. Method input object is as follows:
 
 ```typescript
-{
+instance.addListInput({
     valueName: string,
     description: string,
     choices?: string[]
-}
+});
 ```
 
 - `instance.exec(): Promise<object>` - display menu and receive user input as a result.
