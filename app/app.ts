@@ -5,7 +5,7 @@ function configureCli(models) {
     const modelsService = container.build('Models');
     modelsService.setModels(models);
 
-    return container.build('Commands').register();
+    return container.build('CommandCLIRegistry').register();
 }
 
 DataModels
