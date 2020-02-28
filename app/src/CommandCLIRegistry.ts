@@ -3,7 +3,7 @@ import ICommand from '../types/ICommand';
 const CliBuilder = require('clibuilder');
 const Dject = require('dject/class/utilities/Dject');
 
-class Commands {
+class CommandCLIRegistry {
     static '@dependencies' = [
         'SampleCommand'
     ]
@@ -24,8 +24,8 @@ class Commands {
     }
 
     static build(dependencies) {
-        return Dject.build(Commands, dependencies);
+        return Dject.build(CommandCLIRegistry, dependencies);
     }
 }
 
-export default Dject.prepareExport(Commands);
+export default Dject.prepareExport(CommandCLIRegistry);
