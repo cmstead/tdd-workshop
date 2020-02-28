@@ -2,7 +2,7 @@ import { DataModelSet } from '../types/DataModels';
 
 const Dject = require('dject/class/utilities/Dject');
 
-class Models {
+class ModelsService {
     public static '@singleton' = true
     public static '@dependencies' = [];
 
@@ -21,8 +21,8 @@ class Models {
     }
 
     public static build(dependencies) {
-        return Dject.build(Models, dependencies);
+        return Dject.build(ModelsService, dependencies);
     }
 }
 
-export default Dject.prepareExport(Models);
+export default Dject.prepareExport(ModelsService);
