@@ -1,7 +1,7 @@
 import container from '<%= relativeDepth %>../app/container';
 
 const { assert } = require('chai');
-const gwt = require('fluent-gwt').configure();
+const givenWhenThen = require('fluent-gwt').configure();
 
 describe('<%= className %>', function () {
 
@@ -15,7 +15,7 @@ describe('<%= className %>', function () {
 
     // It behaves this way when the user does that
     it('then, when, given', function(){
-        return gwt
+        return givenWhenThen
             .arrange(
                 'Initial state and/or event',
                 () => null
