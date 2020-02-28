@@ -3,7 +3,7 @@ import ICommand from '../../app/types/ICommand';
 import container from '../../app/container';
 
 const { assert } = require('chai');
-const gwt = require('fluent-gwt').configure();
+const givenWhenThen = require('fluent-gwt').configure();
 
 describe('<%= commandName %>', function () {
 
@@ -17,7 +17,7 @@ describe('<%= commandName %>', function () {
 
     // It behaves this way when the user does that
     it('then, when, given', function () {
-        return gwt
+        return givenWhenThen
             .arrange(
                 'Initial state and/or event',
                 () => null
