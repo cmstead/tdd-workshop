@@ -13,7 +13,7 @@
         "body": [
             "// It behaves this way when the user does that",
             "it('${1:then, when, given}', function(${2:done}){",
-            "return gwt",
+            "return givenWhenThen",
             "\t.arrange(",
             "\t\t'Initial state and/or event',",
             "\t\t() => null // code goes here",
