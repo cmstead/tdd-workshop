@@ -2,7 +2,7 @@ import container from './container';
 import DataModels from './data-models/_DataModels';
 
 function configureCli(models) {
-    const modelsService = container.build('Models');
+    const modelsService = container.build('ModelsService');
     modelsService.setModels(models);
 
     return container.build('CommandCLIRegistry').register();
