@@ -1,6 +1,6 @@
-import module0 from '../app/src/Commands';
+import module0 from '../app/src/CommandCLIRegistry';
 import module1 from '../app/src/commands/SampleCommand';
-import module2 from '../app/src/Models';
+import module2 from '../app/src/ModelsService';
 
 
 const dject = require('dject');

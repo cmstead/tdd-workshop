@@ -7,13 +7,14 @@ execSync('npm install', {
     stdio: 'inherit'
 })
 
-console.log('\nInstalling Yeoman...');
-execSync('npm install yo@latest -g', {
-    stdio: "inherit"
-});
-
-console.log('\nPackaging latest snippets version...');
-packageSnippets();
+try{
+    console.log('\nInstalling Yeoman...');
+    execSync('npm install yo@latest -g', {
+        stdio: "inherit"
+    });    
+} catch(e) {
+    console.log('Yeoman failed to install. Try installing by hand.');
+}
 
 console.log('\nInstalling VS Code snippets extension...');
 execSync('code --install-extension ./tdd-workshop-snippets.vsix', {

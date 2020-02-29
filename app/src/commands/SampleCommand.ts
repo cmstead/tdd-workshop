@@ -5,13 +5,13 @@ const Dject = require('dject/class/utilities/Dject');
 
 class SampleCommand implements ICommand {
     public static '@dependencies' = [
-        'Models'
+        'ModelsService'
     ]
     
     private modelSet: DataModelSet
 
     constructor(dependencyMap: any) {
-        this.modelSet = dependencyMap.Models.getModels()
+        this.modelSet = dependencyMap.ModelsService.getModels()
     }
 
     exec(userInput = []) {
