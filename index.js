@@ -7,7 +7,10 @@ execSync('npm run build-container', {
     cwd: './app/'
 });
 
-const command = ['ts-node', './app.ts']
+const command = [
+    'ts-node',
+    './app.ts'
+]
     .concat(args)
     .join(' ');
 

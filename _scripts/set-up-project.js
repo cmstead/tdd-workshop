@@ -16,6 +16,15 @@ try{
     console.log('Yeoman failed to install. Try installing by hand.');
 }
 
+try{
+    console.log('\nInstalling TS Node...');
+    execSync('npm install ts-node@latest -g', {
+        stdio: "inherit"
+    });    
+} catch(e) {
+    console.log('TS Node failed to install. Try installing by hand.');
+}
+
 console.log('\nInstalling VS Code snippets extension...');
 execSync('code --install-extension ./tdd-workshop-snippets.vsix', {
     cwd: "./_workshop-assets/tdd-workshop-snippets",
