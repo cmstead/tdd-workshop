@@ -3,6 +3,7 @@ import ICommand from "../../types/ICommand";
 const Dject = require('dject/class/utilities/Dject');
 
 class <%= commandName %> implements ICommand {
+    public static '@dependencies' = []
     
     constructor(dependencyMap: any) {
 
@@ -13,8 +14,8 @@ class <%= commandName %> implements ICommand {
     }
 
     static build(dependencies: any[]) {
-        return Dject.build(SampleCommand, dependencies);
+        return Dject.build(<%= commandName %>, dependencies);
     }
 }
 
-export default Dject.prepareExport(SampleCommand);
+export default Dject.prepareExport(<%= commandName %>);
